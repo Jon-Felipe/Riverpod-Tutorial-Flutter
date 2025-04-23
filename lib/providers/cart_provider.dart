@@ -16,6 +16,11 @@ class CartNotifier extends Notifier<Set<Product>> {
   }
 
   // methods to update state
+  void addProduct(Product product) {
+    if (!state.contains(product)) {
+      state = {...state, product};
+    }
+  }
 }
 
 final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {
